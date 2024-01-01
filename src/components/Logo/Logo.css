@@ -1,9 +1,14 @@
 .Tilt { 
-    background: linear-gradient(180deg, hsla(230, 85%, 78%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    /* background: linear-gradient(90deg, #0062ff, #da61ff); */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+    
 }
 
 img { 
-    height: 200px; 
-    width: 200px;
-    padding-top: 25px
+    height: 225px; 
+    width: 225px;
+    padding-top: 25px;
 }
