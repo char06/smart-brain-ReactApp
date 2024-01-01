@@ -1,0 +1,9 @@
+.Tilt { 
+    background: linear-gradient(180deg, hsla(230, 85%, 78%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+}
+
+img { 
+    height: 200px; 
+    width: 200px;
+    padding-top: 25px
+}
