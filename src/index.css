@@ -19,11 +19,6 @@ code {
   text-align: center;
 }
 
-.Navigation {
- 
-
-}
-
 .Logo {
   margin: 20px 0;
 }
@@ -92,4 +87,9 @@ code {
 
 .sign-out-button:hover {
   background-color: #e5e5e5; /* Darker shade on hover */
+}
+
+.center img {
+  max-width: 100%;
+  max-height: 100%;
 }

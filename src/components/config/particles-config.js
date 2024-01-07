@@ -1,5 +1,4 @@
 
-
 const particlesConfig = {
 
   autoPlay: true,
