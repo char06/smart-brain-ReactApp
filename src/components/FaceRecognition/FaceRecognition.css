@@ -4,7 +4,7 @@
     border: 2px solid #00f;
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-around;
+    justify-content: center;
     cursor: pointer;
   }
   

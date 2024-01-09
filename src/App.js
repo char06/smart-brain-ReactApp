@@ -6,11 +6,13 @@ import Rank from './components/Rank/Rank';
 import './App.css';
 import ParticlesBackground from './components/ParticlesBackground';
 import FaceRecognition from './components/FaceRecognition/Face';
+import Signin from './components/Signin/Signin';
 
 function App() {
   const [formInput, setFormInput] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [box, setBox] = useState(null);
+  const [route, setRoute] = useState("Home");
 
   const onInputChange = (event) => {
     setFormInput(event.target.value);
@@ -32,10 +34,11 @@ function App() {
       const height = Number(image.height);
 
       return {
-        topRow: clarifaiFace.top_row * height,
         leftCol: clarifaiFace.left_col * width,
-        bottomRow: height - clarifaiFace.bottom_row * height,
-        rightCol: width - clarifaiFace.right_col * width
+        topRow: clarifaiFace.top_row * height,
+        rightCol: width - (clarifaiFace.right_col * width),
+        bottomRow: height - (clarifaiFace.bottom_row * height),//clarifaiFace.bottom_row * height,
+        
       };
     } else {
       console.log("No face regions found in the API response");
@@ -103,18 +106,30 @@ function App() {
       
   };
 
+  const onRouteChange = (newRoute) => {
+    console.log("Changing route to:", newRoute);
+    setRoute(newRoute)
+  }
+
   // React components 
   return (
     <div className="App">
-      <Navigation />
-      <Logo />
-      <Rank />
-      <ImageLinkForm onInputChange={onInputChange} onSubmit={onSubmit} />
-      <ParticlesBackground className="particles" />
-      {/* Conditionally render FaceRecognition based on imageUrl */}
-      {imageUrl && <FaceRecognition imageUrl={imageUrl} box={box} />}
-    </div>
-  );
+      
+      <Navigation onRouteChange={onRouteChange} />
+      {route === "Signin" ? (
+        <Signin onRouteChange={onRouteChange} />
+      ) : (
+      <>
+        <Logo />
+        <Rank />
+        <ImageLinkForm onInputChange={onInputChange} onSubmit={onSubmit} />
+        <ParticlesBackground className="particles" />
+        {/* Conditionally render FaceRecognition based on imageUrl */}
+        {imageUrl && <FaceRecognition imageUrl={imageUrl} box={box} />}
+      </>
+    )}
+  </div>
+   );
 }
 
 export default App;

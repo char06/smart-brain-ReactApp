@@ -39,7 +39,7 @@ code {
   background-color: #f2eef5;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px #0000001a;
 }
 
 .form-container input {
@@ -92,4 +92,30 @@ code {
 .center img {
   max-width: 100%;
   max-height: 100%;
+}
+
+.signin-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.signin-form {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #0000001a;
+  background-color: #f2eef5;
+}
+
+.form-check-label {
+  display: flex;
+  align-items: center;
+}
+
+#formBasicPassword {
+  display: flex;
+  align-items: center;
 }
