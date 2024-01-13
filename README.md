@@ -1,70 +1,39 @@
-# React Web with Clarifai API for Face recognition. 
+# Smart Brain Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the repository for Smart Brain, an intelligent web app that leverages facial recognition technology using the Clarifai API. This project is built with HTML, CSS, JavaScript, and React.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Facial Recognition:** The app utilizes the Clarifai API to detect and recognize faces in images. For more information on the Clarifai Face Detection model, check the [Clarifai Face Detection documentation](https://clarifai.com/clarifai/main/models/face-detection).
 
-### `npm start`
+- **User Authentication:** Secure user authentication is implemented for a personalized experience.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **User Profile:** Keep track of your submissions and see your recognition history.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- **HTML:** Providing the structure and markup for the web pages.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **CSS:** Styling the app to create an engaging user interface.
 
-### `npm run build`
+- **JavaScript:** Adding dynamic and interactive features to enhance the user experience.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **React:** Building a responsive and efficient single-page application.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Clarifai API:** Harnessing the power of facial recognition for image analysis.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to Use
 
-### `npm run eject`
+1. Log in to the app.
+2. Upload an image for facial recognition.
+3. Experience the power of Clarifai API in detecting faces.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Current Development Status
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Basic structure and UI implemented.
+- Facial recognition feature under development Implemented. 
+- User authentication Under construction.
+- User profile enhancements planned for the next release ongoing. 
+- Bug fixes and improvements ongoing.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
