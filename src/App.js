@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import Navigation from './components/Navigation/Navigation';
-import Logo from './components/Logo/Logo';
-import ImageLinkForm from './components/Form/Form';
-import Rank from './components/Rank/Rank';
-import './App.css';
-import ParticlesBackground from './components/ParticlesBackground';
-import FaceRecognition from './components/FaceRecognition/Face';
-import Signin from './components/Signin/Signin';
+import React, { useState } from "react";
+import Navigation from "./components/Navigation/Navigation";
+import Logo from "./components/Logo/Logo";
+import ImageLinkForm from "./components/Form/Form";
+import Rank from "./components/Rank/Rank";
+import "./App.css";
+import ParticlesBackground from "./components/ParticlesBackground";
+import FaceRecognition from "./components/FaceRecognition/Face";
+import Signin from "./components/Signin/Signin";
+import Register from "./components/Register/Register";
 
 function App() {
   const [formInput, setFormInput] = useState("");
@@ -16,7 +17,7 @@ function App() {
 
   const onInputChange = (event) => {
     setFormInput(event.target.value);
-  }
+  };
 
   // Function to calculate face location based on Clarifai API response
   const calculateFaceLocation = (data) => {
@@ -28,7 +29,8 @@ function App() {
       data.outputs[0].data.regions &&
       data.outputs[0].data.regions.length > 0
     ) {
-      const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
+      const clarifaiFace =
+        data.outputs[0].data.regions[0].region_info.bounding_box;
       const image = document.getElementById("input_image");
       const width = Number(image.width);
       const height = Number(image.height);
@@ -36,9 +38,8 @@ function App() {
       return {
         leftCol: clarifaiFace.left_col * width,
         topRow: clarifaiFace.top_row * height,
-        rightCol: width - (clarifaiFace.right_col * width),
-        bottomRow: height - (clarifaiFace.bottom_row * height),//clarifaiFace.bottom_row * height,
-        
+        rightCol: width - clarifaiFace.right_col * width,
+        bottomRow: height - clarifaiFace.bottom_row * height, //clarifaiFace.bottom_row * height,
       };
     } else {
       console.log("No face regions found in the API response");
@@ -50,86 +51,93 @@ function App() {
   const displayFaceBox = (box) => {
     console.log(box);
     setBox(box);
-  }
+  };
 
   const onSubmit = (event) => {
     event.preventDefault();
-    const submittedUrl = formInput;  // Store the submitted URL
-    setFormInput("");  // Clear the input field
-    setImageUrl(submittedUrl);  // Set the imageUrl state
-    console.log('imageUrl:', submittedUrl);
+    const submittedUrl = formInput; // Store the submitted URL
+    setFormInput(""); // Clear the input field
+    setImageUrl(submittedUrl); // Set the imageUrl state
+    console.log("imageUrl:", submittedUrl);
 
     // Replace 'YOUR_CLARIFAI_API_KEY' with your actual Clarifai API key
-    const PAT = '1bde58abc0194b158c9a5690b49733ab';
-    const USER_ID = 'char06';
-    const APP_ID = 'smart-brain';
-    const MODEL_ID = 'face-detection';
-    const MODEL_VERSION_ID = '6dc7e46bc9124c5c8824be4822abe105';
+    const PAT = "1bde58abc0194b158c9a5690b49733ab";
+    const USER_ID = "char06";
+    const APP_ID = "smart-brain";
+    const MODEL_ID = "face-detection";
+    const MODEL_VERSION_ID = "6dc7e46bc9124c5c8824be4822abe105";
 
     const raw = JSON.stringify({
-      "user_app_id": {
-        "user_id": USER_ID,
-        "app_id": APP_ID
+      user_app_id: {
+        user_id: USER_ID,
+        app_id: APP_ID,
       },
-      "inputs": [
+      inputs: [
         {
-          "data": {
-            "image": {
-              "url": submittedUrl 
-            }
-          }
-        }
-      ]
+          data: {
+            image: {
+              url: submittedUrl,
+            },
+          },
+        },
+      ],
     });
 
     const requestOptions = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Key ' + PAT
+        Accept: "application/json",
+        Authorization: "Key " + PAT,
       },
-      body: raw
+      body: raw,
     };
 
     // Make API call to Clarifai
-    fetch(`https://api.clarifai.com/v2/models/${MODEL_ID}/versions/${MODEL_VERSION_ID}/outputs`, requestOptions)
-      .then(response => response.json())
-      .then(result => {
+    fetch(
+      `https://api.clarifai.com/v2/models/${MODEL_ID}/versions/${MODEL_VERSION_ID}/outputs`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => {
         // Extract face regions from API response
-        console.log('Clarifai API response:', result); 
+        console.log("Clarifai API response:", result);
         const regions = result.outputs[0].data.regions;
         // Calculate and display face bounding box
-        const faceBox = calculateFaceLocation({ outputs: [{ data: { regions } }] });
+        const faceBox = calculateFaceLocation({
+          outputs: [{ data: { regions } }],
+        });
         displayFaceBox(faceBox);
       })
-      .catch(error => console.log('error', error));
-      
+      .catch((error) => console.log("error", error));
   };
 
   const onRouteChange = (newRoute) => {
     console.log("Changing route to:", newRoute);
-    setRoute(newRoute)
-  }
+    setRoute(newRoute);
+  };
 
-  // React components 
+  // React components
   return (
     <div className="App">
-      
-      <Navigation onRouteChange={onRouteChange} />
+      {route === "Register" ? (
+        <Register onRouteChange={onRouteChange} />
+      ) : (null)}
+    
       {route === "Signin" ? (
         <Signin onRouteChange={onRouteChange} />
       ) : (
-      <>
-        <Logo />
-        <Rank />
-        <ImageLinkForm onInputChange={onInputChange} onSubmit={onSubmit} />
-        <ParticlesBackground className="particles" />
-        {/* Conditionally render FaceRecognition based on imageUrl */}
-        {imageUrl && <FaceRecognition imageUrl={imageUrl} box={box} />}
-      </>
-    )}
-  </div>
-   );
+        <> 
+          <Navigation onRouteChange={onRouteChange} route={route}/>
+          <Logo />
+          <Rank />
+          <ImageLinkForm onInputChange={onInputChange} onSubmit={onSubmit} />
+          <ParticlesBackground className="particles" />
+          {/* Conditionally render FaceRecognition based on imageUrl */}
+          {imageUrl && <FaceRecognition imageUrl={imageUrl} box={box} />}
+        </>
+      )}
+    </div>
+  );
 }
 
 export default App;

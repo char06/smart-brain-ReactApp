@@ -1,7 +1,7 @@
 // Navigation.js
 import React from "react";
 
-const Navigation = ({ onRouteChange }) => {
+const Navigation = ({ onRouteChange, route }) => {
   const handleSignOut = () => {
     console.log("Sign Out button clicked");
     onRouteChange("Signin");
@@ -9,12 +9,14 @@ const Navigation = ({ onRouteChange }) => {
 
   return (
     <nav className="Navigation">
-      {/* Your navigation content */}
-      <button onClick={handleSignOut} className="sign-out-button">
-        Sign Out
-      </button>
+      {route === "Home" ? (
+        <button onClick={handleSignOut} className="sign-out-button">
+          Sign Out
+        </button>
+      ) : null}
     </nav>
   );
 };
 
 export default Navigation;
+
