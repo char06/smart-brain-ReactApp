@@ -35,12 +35,17 @@ code {
 
 .form-container {
   max-width: 70%;
-  margin: auto;
+  margin: 50px auto 70px;
   background-color: #f2eef5;
-  padding: 20px;
+  padding: 50px;
   border-radius: 8px;
-  box-shadow: 0 0 10px #0000001a;
+  box-shadow: 0 0 20px #0000001a;
+  background-image: url("/Users/carlosaguirre/Desktop/smart-brain/src/form.jpg");
+  background-size: cover;  /* Optional: Adjust to your needs */
+  background-position: center center;  /* Optional: Adjust to your needs */
+  background-repeat: no-repeat;  /* Optional: Adjust to your needs */
 }
+
 
 .form-container input {
   width: 100%;
@@ -64,13 +69,6 @@ code {
   background-color: #0056b3;
 }
 
-.particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
 
 .sign-out-button {
   position: absolute;
@@ -102,13 +100,14 @@ code {
 }
 
 .signin-form {
-  width: 300px;
+  width: 400px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 0 10px #0000001a;
-  background-color: #f2eef5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1); /* Adjust the alpha channel as needed */
+  background-color: rgba(242, 238, 245, 0.1); /* Adjust the alpha channel as needed */
 }
+
 
 .form-check-label {
   display: flex;
@@ -118,4 +117,8 @@ code {
 #formBasicPassword {
   display: flex;
   align-items: center;
+}
+
+.register:hover {
+  color: #ffffff; /* Darker shade on hover */
 }

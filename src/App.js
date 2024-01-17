@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import Navigation from "./components/Navigation/Navigation";
 import Logo from "./components/Logo/Logo";
 import ImageLinkForm from "./components/Form/Form";
-import Rank from "./components/Rank/Rank";
 import "./App.css";
-import ParticlesBackground from "./components/ParticlesBackground";
 import FaceRecognition from "./components/FaceRecognition/Face";
 import Signin from "./components/Signin/Signin";
 import Register from "./components/Register/Register";
@@ -89,13 +87,12 @@ function App() {
         Accept: "application/json",
         Authorization: "Key " + PAT,
       },
-      body: raw,
+      body: raw
     };
 
     // Make API call to Clarifai
     fetch(
-      `https://api.clarifai.com/v2/models/${MODEL_ID}/versions/${MODEL_VERSION_ID}/outputs`,
-      requestOptions
+      `https://api.clarifai.com/v2/models/${MODEL_ID}/versions/${MODEL_VERSION_ID}/outputs`, requestOptions
     )
       .then((response) => response.json())
       .then((result) => {
@@ -129,9 +126,7 @@ function App() {
         <> 
           <Navigation onRouteChange={onRouteChange} route={route}/>
           <Logo />
-          <Rank />
           <ImageLinkForm onInputChange={onInputChange} onSubmit={onSubmit} />
-          <ParticlesBackground className="particles" />
           {/* Conditionally render FaceRecognition based on imageUrl */}
           {imageUrl && <FaceRecognition imageUrl={imageUrl} box={box} />}
         </>
