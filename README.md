@@ -36,4 +36,5 @@ Welcome to the repository for Smart Brain, an intelligent web app that leverages
 - User profile enhancements planned for the next release ongoing. 
 - Bug fixes and improvements ongoing.
 
+<img width="1429" alt="Smart-brain" src="https://github.com/char06/smart-brain-ReactApp/assets/24831449/76a52f90-edc2-4fce-b990-73d656b2a6c3">
 
